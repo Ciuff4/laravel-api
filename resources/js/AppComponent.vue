@@ -17,7 +17,8 @@ export default {
 name:'App',
 data(){
 return{
-    apiUrl:'http://127.0.0.1:8000/api/posts'
+    apiUrl:'http://127.0.0.1:8000/api/posts',
+    posts:[],
 }
 },
 mounted(){
@@ -27,7 +28,7 @@ methods:{
     getApiUrl(){
         axios.get(this.apiUrl)
         .then(r=>{
-            console.log(r.data);
+            this.posts=r.data
         })
     }
 }

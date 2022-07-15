@@ -1912,7 +1912,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'App',
   data: function data() {
     return {
-      apiUrl: 'http://127.0.0.1:8000/api/posts'
+      apiUrl: 'http://127.0.0.1:8000/api/posts',
+      posts: []
     };
   },
   mounted: function mounted() {
@@ -1920,8 +1921,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getApiUrl: function getApiUrl() {
+      var _this = this;
+
       axios.get(this.apiUrl).then(function (r) {
-        console.log(r.data);
+        _this.posts = r.data;
       });
     }
   }
